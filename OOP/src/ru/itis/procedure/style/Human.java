@@ -18,6 +18,37 @@ package ru.itis.procedure.style;
  */
 public class Human {
     // поля - имя, возраст
-    public String name;
-    public int age;
+    private String name;
+    private int age;
+
+    // пустой конструктор, не имеющий параметров
+    public Human() {
+        this.name = "DEFAULT_NAME";
+        this.age = 1;
+    }
+
+    public Human(String name, int age) {
+        this.setAge(age);
+        this.setName(name);
+    }
+
+    public void setAge(int age) {
+        if (age >= 0 && age <= 150) {
+            this.age = age;
+        } else {
+            this.age = 1;
+        }
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 }
