@@ -26,5 +26,15 @@ public class Main {
             }
             System.out.println();
         }
+
+        for (int i = 0; i < array.length; i++) {
+            int min = array[i][0];
+            for (int j = 0; j < array[0].length; j++) {
+                if (min > array[i][j]) {
+                    min = array[i][j];
+                }
+            }
+            System.out.println("In " + i + " line min is " + min);
+        }
     }
 }
