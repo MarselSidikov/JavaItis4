@@ -78,12 +78,20 @@ public class Graph {
         return maxDegreeVertex;
     }
 
-    /**
-     * Количество соседей заданной вершины
-     * @param vertex
-     * @return
-     */
-    public int countOfNeighbors(int vertex) {
-        
+    public int[] getNeighbors(int vertex) {
+        // подготавливаем массив для соседей
+        int neighbors[] = new int[vertexDegree(vertex)];
+        // счетчик соседей
+        int k = 0;
+        for (int i = 0; i < vertexCount; i++) {
+            // если нашли соседа
+            if (matrix[vertex][i] != 0) {
+                // добавляем в массив
+                neighbors[k] = i;
+                k++;
+            }
+        }
+
+        return neighbors;
     }
 }

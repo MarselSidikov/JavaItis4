@@ -17,5 +17,10 @@ public class Main {
         System.out.println(graph.vertexDegree(1));
         System.out.println(graph.maxDegreeVertex());
 
+        int n[] = graph.getNeighbors(1);
+
+        for (int i = 0; i < n.length; i++ ) {
+            System.out.print(n[i] + " ");
+        }
     }
 }
