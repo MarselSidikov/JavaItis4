@@ -59,4 +59,31 @@ public class Graph {
 
         return degreeResult;
     }
+
+    /**
+     * функция возвращает номер вершины с максимальным количеством соседей
+     * @return
+     */
+    public int maxDegreeVertex() {
+        int maxDegree = 0;
+        int maxDegreeVertex = 0;
+
+        for (int i = 0; i < vertexCount; i++) {
+            if (maxDegree < vertexDegree(i)) {
+                maxDegree = vertexDegree(i);
+                maxDegreeVertex = i;
+            }
+        }
+
+        return maxDegreeVertex;
+    }
+
+    /**
+     * Количество соседей заданной вершины
+     * @param vertex
+     * @return
+     */
+    public int countOfNeighbors(int vertex) {
+        
+    }
 }

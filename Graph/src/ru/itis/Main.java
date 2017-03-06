@@ -8,10 +8,14 @@ public class Main {
         graph.addEdge(0, 2);
         graph.addEdge(1, 3);
         graph.addEdge(1, 4);
+        graph.addEdge(4, 2);
+        graph.addEdge(4, 3);
+        graph.addEdge(4, 0);
 
         graph.showMatrix();
 
         System.out.println(graph.vertexDegree(1));
+        System.out.println(graph.maxDegreeVertex());
 
     }
 }
