@@ -14,7 +14,12 @@ public class Main {
         graph.addEdge(4, 5);
         graph.addEdge(4, 6);
 
-        graph.depthFirstSearch(6);
+        int path[] = graph.depthFirstSearch(6);
+
+        for (int i = 0; i < path.length; i++) {
+            System.out.print(path[i] + " ");
+        }
+        System.out.println();
         System.out.println("----------------");
         graph.breadthFirstSearch(6);
 

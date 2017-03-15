@@ -134,7 +134,8 @@ public class Graph {
         return result;
     }
 
-    public void depthFirstSearch(int startVertex) {
+
+    public int[] depthFirstSearch(int startVertex) {
         visited = new int[vertexCount];
         // Стек
         Stack stack = new Stack();
@@ -170,6 +171,14 @@ public class Graph {
         for (int i = 0; i < visited.length; i++) {
             System.out.println("Vertex " + i + " was visited " + visited[i]);
         }
+
+        // TODO: расписать и посмотреть
+        int resultPath[] = new int[visitedStep - 1];
+        for (int i = 0; i < visited.length; i++) {
+            resultPath[visited[i] - 1] = i;
+        }
+
+        return resultPath;
     }
 
     public void breadthFirstSearch(int vertex) {
