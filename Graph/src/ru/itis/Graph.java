@@ -174,7 +174,7 @@ public class Graph {
 
         // TODO: расписать и посмотреть
         int resultPath[] = new int[visitedStep - 1];
-        for (int i = 0; i < visited.length; i++) {
+        for (int i = 0; i < visitedStep - 1; i++) {
             resultPath[visited[i] - 1] = i;
         }
 
@@ -207,6 +207,26 @@ public class Graph {
 
         for (int i = 0; i < visited.length; i++) {
             System.out.println("Vertex " + i + " was visited " + visited[i]);
+        }
+    }
+
+    /**
+     * Показать все компоненты связности
+     */
+    public void showAllConnectedComponents() {
+        boolean currentVisited[] = new boolean[vertexCount];
+        for (int i = 0; i < vertexCount; i++) {
+            if (currentVisited[i] == false) {
+                int connectedComponent[] = depthFirstSearch(i);
+                for (int j = 0; j < connectedComponent.length; j++) {
+                    currentVisited[j] = true;
+                }
+                System.out.println("Component 1: ");
+                for (int k = 0; k < connectedComponent.length; k++) {
+                    System.out.print(connectedComponent[k] + " ");
+                }
+                System.out.println();
+            }
         }
     }
 }
