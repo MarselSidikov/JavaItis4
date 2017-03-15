@@ -135,6 +135,7 @@ public class Graph {
     }
 
     public void depthFirstSearch(int startVertex) {
+        visited = new int[vertexCount];
         // Стек
         Stack stack = new Stack();
         // шаг посещения
@@ -163,6 +164,35 @@ public class Graph {
             } else {
                 // если больше соседей у вершины нет, то вытаскиваем
                 stack.pop();
+            }
+        }
+
+        for (int i = 0; i < visited.length; i++) {
+            System.out.println("Vertex " + i + " was visited " + visited[i]);
+        }
+    }
+
+    public void breadthFirstSearch(int vertex) {
+        visited = new int[vertexCount];
+        int visitedStep = 1;
+        Queue queue = new Queue();
+        queue.put(vertex);
+
+        // пока очередь не пуста
+        while (queue.getCount() != 0) {
+            // достаем вершину из очереди
+            int currentVertex = queue.get();
+            // если она не была посещена
+            if (visited[currentVertex] == 0) {
+                // посещяем
+                visited[currentVertex] = visitedStep;
+                visitedStep++;
+                // получаем всех соседей вершины
+                int neighborsOfCurrentVertex[] = getNeighbors(currentVertex);
+                // добавляем всех их в очередь
+                for (int i = 0; i < neighborsOfCurrentVertex.length; i++) {
+                    queue.put(neighborsOfCurrentVertex[i]);
+                }
             }
         }
 

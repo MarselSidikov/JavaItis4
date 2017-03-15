@@ -15,6 +15,8 @@ public class Main {
         graph.addEdge(4, 6);
 
         graph.depthFirstSearch(6);
+        System.out.println("----------------");
+        graph.breadthFirstSearch(6);
 
         /*
         graph.showMatrix();
