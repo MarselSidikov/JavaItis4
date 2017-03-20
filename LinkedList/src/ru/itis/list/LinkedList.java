@@ -65,4 +65,13 @@ public class LinkedList {
             current = current.getNext();
         }
     }
+
+    public void remove(int value) {
+        Node current = this.first;
+        while (current.getNext().getValue() != value) {
+            current = current.getNext();
+        }
+
+        current.setNext(current.getNext().getNext());
+    }
 }

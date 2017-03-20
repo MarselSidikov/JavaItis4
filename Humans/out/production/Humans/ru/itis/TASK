@@ -1,0 +1,4 @@
+1) Создать в папке HomeWork папку Task14
+2) Создать класс Human
+3) Описать Stack по аналогии с LinkedListStack
+но вместо char там будет Human
