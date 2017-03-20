@@ -1,4 +1,4 @@
-package ru.itis;
+package ru.itis.arrays;
 
 /**
  * 13.03.2017

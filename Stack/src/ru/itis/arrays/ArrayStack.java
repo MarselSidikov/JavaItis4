@@ -1,18 +1,18 @@
-package ru.itis;
+package ru.itis.arrays;
 
 /**
  * 06.03.2017
- * Stack
+ * ArrayStack
  *
  * @author Sidikov Marsel (First Software Engineering Platform)
  * @version v1.0
  */
-public class Stack {
+public class ArrayStack {
     private final int MAX_STACK_SIZE = 10;
     private char stack[];
     private int count;
 
-    public Stack() {
+    public ArrayStack() {
         stack = new char[MAX_STACK_SIZE];
         count = 0;
     }

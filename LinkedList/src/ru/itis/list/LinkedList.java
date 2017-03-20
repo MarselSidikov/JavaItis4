@@ -2,6 +2,7 @@ package ru.itis.list;
 
 import ru.itis.nodes.Node;
 
+// Добавить функцию получения значения узла по его порядковому номеру
 public class LinkedList {
     private Node first;
     private Node last;
@@ -55,7 +56,6 @@ public class LinkedList {
         // увеличиваем количество
         count++;
     }
-
 
     public void showAllNodes() {
         Node current = this.first;

@@ -1,5 +1,7 @@
 package ru.itis;
 
+import ru.itis.linkeds.LinkedListStack;
+
 /**
  * 13.03.2017
  * MainBrackets
@@ -11,7 +13,8 @@ public class MainBrackets {
     public static void main(String[] args) {
         char brackets[] = "{[{()}{()}]}[]()".toCharArray();
 
-        Stack stack = new Stack();
+        // ArrayStack stack = new ArrayStack();
+        LinkedListStack stack = new LinkedListStack();
         boolean allOk = true;
 
         for (int i = 0; i < brackets.length; i++) {
