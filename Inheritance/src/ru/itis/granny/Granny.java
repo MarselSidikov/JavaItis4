@@ -1,4 +1,4 @@
-package ru.itis;
+package ru.itis.granny;
 
 /**
  * Класс Бабушка

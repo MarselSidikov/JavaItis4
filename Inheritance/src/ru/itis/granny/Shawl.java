@@ -1,4 +1,4 @@
-package ru.itis;
+package ru.itis.granny;
 
 /**
  * Created by User on 22.03.2017.
