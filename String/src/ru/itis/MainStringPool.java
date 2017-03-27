@@ -13,6 +13,5 @@ public class MainStringPool {
         System.out.println("a1 == a2 : " + (a1 == a2));
 
         System.out.println("a1.equals(a2) : " + a1.equals(a2));
-
     }
 }
