@@ -2,6 +2,16 @@ package ru.itis;
 
 public class Main {
 
+	public static Object min(Object objects[], Comparator comparator) {
+		Object min = objects[0];
+		for (int i = 1; i < objects.length; i++) {
+			if (comparator.compare(min, objects[i]) > 0) {
+				min = objects[i];
+			}
+		}
+
+		return min;
+	}
 	public static Object min(Comparable comparables[]) {
 		Comparable min = comparables[0];
 		for (int i = 1; i < comparables.length; i++) {
@@ -45,13 +55,13 @@ public class Main {
 	}
 
     public static void main(String[] args) {
-	    Human marsel = new Human("Marsel", 23);
-	    Human guzel = new Human("Guzel", 18);
-	    Human maksim = new Human("Maksim", 14);
-	    Human sergey = new Human("Sergey", 16);
-	    Human veronika = new Human("Verokina", 16);
-	    Human marat = new Human("Marat", 16);
-	    Human ruslan = new Human("Ruslan", 16);
+	    Human marsel = new Human("Marsel", 23, 185);
+	    Human guzel = new Human("Guzel", 18, 178);
+	    Human maksim = new Human("Maksim", 14, 169);
+	    Human sergey = new Human("Sergey", 16, 182);
+	    Human veronika = new Human("Verokina", 16, 160);
+	    Human marat = new Human("Marat", 16, 183);
+	    Human ruslan = new Human("Ruslan", 16, 181);
 
 	    Human humans[] = {guzel, maksim, sergey, veronika, marat, ruslan, marsel};
 
@@ -75,5 +85,16 @@ public class Main {
 
 		Human elseMinHuman = (Human)min(humans);
 		System.out.println(elseMinHuman);
+
+		Human minHeight = (Human)min(humans, new HumanHeightComparator());
+		System.out.println(minHeight);
+
+
+
+
+
+
+
+
 	}
 }

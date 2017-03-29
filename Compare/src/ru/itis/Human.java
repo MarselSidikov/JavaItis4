@@ -27,7 +27,7 @@ public class Human implements Comparable {
     }
 
     public String toString() {
-        return this.name + " " + this.age;
+        return this.name + " " + this.age + " " + this.height;
     }
 
     public int compareTo(Object object) {
