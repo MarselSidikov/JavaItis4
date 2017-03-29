@@ -42,6 +42,11 @@ public class Tokenizer {
         // добавляем последний токен, после которого нет пробела
         Token newToken = new Token(currentToken, positionInCurrentToken);
         tokens[tokensCount] = newToken;
-        return tokens;
+        tokensCount++;
+        Token tokenResult[] = new Token[tokensCount];
+        for (i = 0; i  < tokensCount; i++) {
+            tokenResult[i] = tokens[i];
+        }
+        return tokenResult;
     }
 }
