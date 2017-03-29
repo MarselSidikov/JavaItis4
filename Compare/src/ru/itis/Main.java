@@ -5,13 +5,25 @@ public class Main {
 	public static Object min(Object objects[], Comparator comparator) {
 		Object min = objects[0];
 		for (int i = 1; i < objects.length; i++) {
-			if (comparator.compare(min, objects[i]) > 0) {
+			int compareResult;
+			if (comparator == null) {
+				compareResult = ((Comparable)min).compareTo(objects[i]);
+			} else {
+				compareResult = comparator.compare(min, objects[i]);
+			}
+
+			if (compareResult > 0) {
 				min = objects[i];
 			}
 		}
 
 		return min;
 	}
+
+	public static Object min(Comparable comparables[]) {
+		return min(comparables, null);
+	}
+	/**
 	public static Object min(Comparable comparables[]) {
 		Comparable min = comparables[0];
 		for (int i = 1; i < comparables.length; i++) {
@@ -22,6 +34,7 @@ public class Main {
 
 		return min;
 	}
+	 **/
 
 	/**
 	public static Object min(Object objects[]) {
@@ -88,6 +101,9 @@ public class Main {
 
 		Human minHeight = (Human)min(humans, new HumanHeightComparator());
 		System.out.println(minHeight);
+
+		Human minAgeHuman = (Human)min(humans);
+		System.out.println(minAgeHuman);
 
 
 
