@@ -106,9 +106,12 @@ public class Main {
 		System.out.println(minAgeHuman);
 
 
+		String s1 = "Hello!";
+		String s2 = "Hellwo!";
 
-
-
+		CharSequence sequence = new CharSequence(s1.toCharArray());
+		CharSequence otherSequence = new CharSequence(s2.toCharArray());
+		System.out.println(sequence.compareTo(otherSequence));
 
 
 
