@@ -1,6 +1,6 @@
 package ru.itis;
 
-public class Rectangle {
+public class Rectangle implements Comparable {
     private int a;
     private int b;
 
@@ -31,5 +31,10 @@ public class Rectangle {
 
     public String toString() {
         return this.a + " " + this.b;
+    }
+
+    @Override
+    public int compareTo(Object object) {
+        return this.area() - ((Rectangle)object).area();
     }
 }

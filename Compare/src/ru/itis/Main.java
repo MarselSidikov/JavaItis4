@@ -2,12 +2,26 @@ package ru.itis;
 
 public class Main {
 
+	public static Object min(Comparable comparables[]) {
+		Comparable min = comparables[0];
+		for (int i = 1; i < comparables.length; i++) {
+			if (min.compareTo(comparables[i]) > 0) {
+				min = comparables[i];
+			}
+		}
+
+		return min;
+	}
+
+	/**
 	public static Object min(Object objects[]) {
 		Object min = objects[0];
 		for (int i = 1; i < objects.length; i++) {
 			// if ()
 		}
+		return null;
 	}
+	**/
 	public static Human minHuman(Human humans[]) {
 		Human min = humans[0];
 		for (int i = 1; i < humans.length; i++) {
@@ -55,5 +69,11 @@ public class Main {
 
 		Rectangle minRect = minRectangle(rectangles);
 		System.out.println(minRect);
-    }
+
+		Rectangle elseMinRect = (Rectangle)min(rectangles);
+		System.out.println(elseMinRect);
+
+		Human elseMinHuman = (Human)min(humans);
+		System.out.println(elseMinHuman);
+	}
 }
