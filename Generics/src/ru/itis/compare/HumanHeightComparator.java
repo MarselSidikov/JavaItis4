@@ -1,4 +1,4 @@
-package ru.itis;
+package ru.itis.compare;
 
 public class HumanHeightComparator implements Comparator<Human> {
     @Override
