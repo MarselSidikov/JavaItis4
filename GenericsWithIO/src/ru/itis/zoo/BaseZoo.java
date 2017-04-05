@@ -8,6 +8,5 @@ import ru.itis.animal.Animal;
 // типом "Animal"
 public interface BaseZoo<T extends Animal> {
     void add(T animal);
-
     void writeToFile(String animalName) throws Exception;
 }

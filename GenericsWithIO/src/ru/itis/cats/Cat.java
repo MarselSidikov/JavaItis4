@@ -8,6 +8,7 @@ public abstract class Cat implements Animal {
     public Cat(String name) {
         this.name = name;
     }
+
     public String getName() {
         return name;
     }

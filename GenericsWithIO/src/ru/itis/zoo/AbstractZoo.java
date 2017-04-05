@@ -17,7 +17,7 @@ public class AbstractZoo<T extends Animal> implements BaseZoo<T> {
     private int count = 0;
 
     public AbstractZoo() {
-        this.animals = new Tiger[MAX_ANIMALS_COUNT];
+        this.animals = new Animal[MAX_ANIMALS_COUNT];
     }
 
     @Override
