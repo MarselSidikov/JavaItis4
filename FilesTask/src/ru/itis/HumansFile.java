@@ -3,6 +3,9 @@ package ru.itis;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
 
+// Параметризовать HumansFIle людьми
+// добавить возможность добавления людей в файл
+// добавить метод writeHumans() - запись всех людей в файл
 public class HumansFile implements File {
 
     private String name;
