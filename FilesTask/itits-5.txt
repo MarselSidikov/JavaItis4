@@ -1,0 +1,3 @@
+Superhero{age=17, superSkill='Иногда понимает, но иногда - не всегда'}
+Superhero{age=16, superSkill='Сидит рядом с Маратом'}
+Superhero{age=18, superSkill='Я все сделала! Это правильно! ЭТОРАБОТАЕТ!!, но это не точно'}

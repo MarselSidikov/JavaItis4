@@ -14,10 +14,10 @@ public class Folder<T extends File> {
         files.add(file);
     }
 
-    public void writeText(String fileName, String text) {
+    public void writeAllFromBufferToFile(String fileName) {
         for (int i = 0; i < files.size(); i++) {
             if (files.get(i).getName().equals(fileName)) {
-                files.get(i).write(text);
+                files.get(i).writeAllFromBuffer();
             }
         }
     }

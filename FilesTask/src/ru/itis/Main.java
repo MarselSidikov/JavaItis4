@@ -6,16 +6,36 @@ import java.io.OutputStream;
 public class Main {
 
     public static void main(String[] args) throws Exception{
-        HumansFile file = new HumansFile("humans1.txt");
-        HumansFile file1 = new HumansFile("humans2.txt");
-        HumansFile file2 = new HumansFile("humans3.txt");
+        Folder<HumansFile<Superhero>>  folder =
+                new Folder<>();
 
-        Folder<HumansFile> humansFileFolder = new Folder<>();
-        humansFileFolder.add(file);
-        humansFileFolder.add(file1);
-        humansFileFolder.add(file2);
-        humansFileFolder.writeText("humans2.txt", "Guzel");
-        humansFileFolder.writeText("humans1.txt", "Marat");
-        humansFileFolder.writeText("humans3.txt", "Ruslan");
+        HumansFile<Superhero> superheroFileJava =
+                new HumansFile<>("java-heroes.txt");
+        HumansFile<Superhero> superheroFileByLife =
+                new HumansFile<>("itits-5.txt");
+
+        Superhero marat =
+                new Superhero(17, "Иногда понимает, но иногда - не всегда");
+        Superhero ruslan =
+                new Superhero(16, "Сидит рядом с Маратом");
+        Superhero guzel =
+                new Superhero(18, "Я все сделала! Это правильно! ЭТОРАБОТАЕТ!!, но это не точно");
+
+        Superhero marsel =
+                new Superhero(23,"Лучший преподаватель по мнению Марата");
+        Superhero alterMarsel =
+                new Superhero(56, "Хочет домой");
+
+        superheroFileJava.addToBuffer(marsel);
+        superheroFileJava.addToBuffer(alterMarsel);
+        superheroFileByLife.addToBuffer(marat);
+        superheroFileByLife.addToBuffer(ruslan);
+        superheroFileByLife.addToBuffer(guzel);
+
+        folder.add(superheroFileByLife);
+        folder.add(superheroFileJava);
+
+        folder.writeAllFromBufferToFile("java-heroes.txt");
+        folder.writeAllFromBufferToFile("itits-5.txt");
     }
 }

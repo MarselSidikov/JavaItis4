@@ -1,0 +1,2 @@
+Superhero{age=23, superSkill='Лучший преподаватель по мнению Марата'}
+Superhero{age=56, superSkill='Хочет домой'}
