@@ -1,4 +1,4 @@
-package ru.itis;
+package ru.itis.models;
 
 public class Superhero implements Human {
     private int age;

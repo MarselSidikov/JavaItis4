@@ -1,4 +1,4 @@
-package ru.itis;
+package ru.itis.files;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;

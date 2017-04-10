@@ -1,12 +1,13 @@
 package ru.itis;
 
-import java.io.FileOutputStream;
-import java.io.OutputStream;
+import ru.itis.files.Folder;
+import ru.itis.impl.HumansFile;
+import ru.itis.models.Superhero;
 
 public class Main {
 
     public static void main(String[] args) throws Exception{
-        Folder<HumansFile<Superhero>>  folder =
+        Folder<HumansFile<Superhero>> folder =
                 new Folder<>();
 
         HumansFile<Superhero> superheroFileJava =

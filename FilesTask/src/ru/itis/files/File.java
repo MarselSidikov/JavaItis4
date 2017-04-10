@@ -1,4 +1,4 @@
-package ru.itis;
+package ru.itis.files;
 
 public interface File<T> {
     void addToBuffer(T data);
