@@ -54,6 +54,17 @@ public class HumansDataStorage implements BaseDataStorage<Human> {
         }
 
         // записать в файл humans
+        try {
+            BufferedWriter writer =
+                    new BufferedWriter(new FileWriter(fileName));
+            for (int i = 0; i < humans.size(); i++) {
+                writer.write(humans.get(i).toString() + "\n");
+            }
+            writer.close();
+        } catch (IOException e) {
+            System.err.println("File not found");
+        }
+
     }
 
     @Override
@@ -70,11 +81,12 @@ public class HumansDataStorage implements BaseDataStorage<Human> {
                 String humanName = splitHuman[1];
                 int humanAge = Integer.parseInt(splitHuman[2]);
                 if (humanId == id) {
+                    reader.close();
                     return new Human(id, humanName, humanAge);
                 }
                 currentHumanAsString = reader.readLine();
             }
-
+            reader.close();
         } catch (FileNotFoundException e) {
             System.err.println("File not found");
             return null;
@@ -114,6 +126,7 @@ public class HumansDataStorage implements BaseDataStorage<Human> {
                 humans.add(human);
                 currentHumanAsString = reader.readLine();
             }
+            reader.close();
         } catch (FileNotFoundException e) {
             System.err.println("File not found");
             return null;
@@ -121,7 +134,6 @@ public class HumansDataStorage implements BaseDataStorage<Human> {
             System.err.println("Exception in IO");
             return null;
         }
-
         return humans;
     }
 }

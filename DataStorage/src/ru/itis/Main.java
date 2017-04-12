@@ -24,5 +24,7 @@ public class Main {
         for (int i  = 0; i < fromStorage.size(); i++) {
             System.out.println(fromStorage.get(i));
         }
+
+        dataStorage.delete(4);
     }
 }
