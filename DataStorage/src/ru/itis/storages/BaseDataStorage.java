@@ -1,4 +1,4 @@
-package ru.itis;
+package ru.itis.storages;
 
 public interface BaseDataStorage<T> {
     /**

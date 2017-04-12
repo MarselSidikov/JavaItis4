@@ -1,17 +1,20 @@
 package ru.itis;
 
+import ru.itis.id.IdGenerator;
+import ru.itis.id.IdGeneratorImpl;
+import ru.itis.models.Human;
+import ru.itis.storages.HumansDataStorage;
+
 public class Main {
 
     public static void main(String[] args) {
         Human marsel = new Human("Marsel", 23);
         Human guzel = new Human("Guzel", 18);
+        IdGenerator idGenerator = new IdGeneratorImpl("id.txt");
+        HumansDataStorage dataStorage =
+                new HumansDataStorage("human.txt", idGenerator);
 
-        HumansDataStorage dataStorage = new HumansDataStorage("human.txt");
         dataStorage.save(marsel);
-        int guzelId = dataStorage.save(guzel);
-        dataStorage.find(1);
-
-        Human guzelFromFile = dataStorage.find(guzelId);
-        System.out.println(guzelFromFile);
+        dataStorage.save(guzel);
     }
 }

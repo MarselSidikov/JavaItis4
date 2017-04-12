@@ -1,20 +1,23 @@
-package ru.itis;
+package ru.itis.storages;
+
+import ru.itis.id.IdGenerator;
+import ru.itis.models.Human;
 
 import java.io.*;
-import java.util.Random;
 
 public class HumansDataStorage implements BaseDataStorage<Human> {
 
     private String fileName;
+    private IdGenerator idGenerator;
 
-    public HumansDataStorage(String fileName) {
+    public HumansDataStorage(String fileName, IdGenerator idGenerator) {
         this.fileName = fileName;
+        this.idGenerator = idGenerator;
     }
 
     @Override
     public int save(Human model) {
-        Random random = new Random();
-        int generatedId = random.nextInt();
+        int generatedId = idGenerator.generateId();
         model.setId(generatedId);
 
         try {
