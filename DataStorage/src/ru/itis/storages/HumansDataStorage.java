@@ -53,17 +53,7 @@ public class HumansDataStorage implements BaseDataStorage<Human> {
             humans.remove(indexForRemove);
         }
 
-        // записать в файл humans
-        try {
-            BufferedWriter writer =
-                    new BufferedWriter(new FileWriter(fileName));
-            for (int i = 0; i < humans.size(); i++) {
-                writer.write(humans.get(i).toString() + "\n");
-            }
-            writer.close();
-        } catch (IOException e) {
-            System.err.println("File not found");
-        }
+        flushToFile(humans);
 
     }
 
@@ -99,7 +89,16 @@ public class HumansDataStorage implements BaseDataStorage<Human> {
 
     @Override
     public void update(Human model) {
+        List<Human> humans = findAll();
+        for (int i = 0; i < humans.size(); i++) {
+            if (humans.get(i).getId() == model.getId()) {
+                // humans.set(i, model);
+                humans.get(i).setAge(model.getAge());
+                humans.get(i).setName(model.getName());
+            }
+        }
 
+        flushToFile(humans);
     }
 
     @Override
@@ -136,4 +135,19 @@ public class HumansDataStorage implements BaseDataStorage<Human> {
         }
         return humans;
     }
+
+    private void flushToFile(List<Human> humans) {
+        try {
+            BufferedWriter writer =
+                    new BufferedWriter(new FileWriter(fileName));
+            for (int i = 0; i < humans.size(); i++) {
+                writer.write(humans.get(i).toString() + "\n");
+            }
+            writer.close();
+        } catch (IOException e) {
+            System.err.println("File not found");
+        }
+    }
+
+
 }
