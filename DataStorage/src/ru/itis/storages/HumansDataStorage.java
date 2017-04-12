@@ -4,6 +4,8 @@ import ru.itis.id.IdGenerator;
 import ru.itis.models.Human;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class HumansDataStorage implements BaseDataStorage<Human> {
 
@@ -73,5 +75,15 @@ public class HumansDataStorage implements BaseDataStorage<Human> {
     @Override
     public void update(Human model) {
 
+    }
+
+    @Override
+    public List<Human> findAll() {
+        List<Human> humans = new ArrayList<>();
+
+        // открыть файл
+        // все считать
+        // закинуть в список
+        // вернуть результат
     }
 }

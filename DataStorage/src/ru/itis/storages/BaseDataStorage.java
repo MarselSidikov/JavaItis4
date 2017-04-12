@@ -1,5 +1,9 @@
 package ru.itis.storages;
 
+import ru.itis.models.Human;
+
+import java.util.List;
+
 public interface BaseDataStorage<T> {
     /**
      * Сохранение модели
@@ -26,4 +30,10 @@ public interface BaseDataStorage<T> {
      * @param model обновляемые данные модели
      */
     void update(T model);
+
+    /**
+     * Вытащить всех людей
+     * @return список людей
+     */
+    List<Human> findAll();
 }
