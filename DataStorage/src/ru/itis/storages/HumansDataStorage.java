@@ -40,7 +40,20 @@ public class HumansDataStorage implements BaseDataStorage<Human> {
 
     @Override
     public void delete(int id) {
+        List<Human> humans = findAll();
+        int indexForRemove = -1;
+        for (int i = 0; i < humans.size(); i++) {
+            if (humans.get(i).getId() == id) {
+                indexForRemove = i;
+                break;
+            }
+        }
 
+        if (indexForRemove > -1) {
+            humans.remove(indexForRemove);
+        }
+
+        // записать в файл humans
     }
 
     @Override
