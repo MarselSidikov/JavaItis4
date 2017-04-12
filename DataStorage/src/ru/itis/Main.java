@@ -29,5 +29,11 @@ public class Main {
 
         Human newHuman = new Human(6, "Alina", 77);
         dataStorage.update(newHuman);
+
+        List<Human> guzels = dataStorage.findAllByName("Guzel");
+
+        for (int i  = 0; i < guzels.size(); i++) {
+            System.out.println(guzels.get(i));
+        }
     }
 }
