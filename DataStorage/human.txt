@@ -4,3 +4,5 @@
 3 Guzel 18
 4 Marsel 23
 5 Guzel 18
+6 Marsel 23
+7 Guzel 18

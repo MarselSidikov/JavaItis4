@@ -82,8 +82,33 @@ public class HumansDataStorage implements BaseDataStorage<Human> {
         List<Human> humans = new ArrayList<>();
 
         // открыть файл
-        // все считать
-        // закинуть в список
-        // вернуть результат
+        try {
+            BufferedReader reader =
+                new BufferedReader(new FileReader(fileName));
+
+            String currentHumanAsString = reader.readLine();
+
+            while (currentHumanAsString != null) {
+                // разбиваем считанную строку по пробелам
+                String splitHuman[] = currentHumanAsString.split(" ");
+                // получаем id
+                int humanId = Integer.parseInt(splitHuman[0]);
+                // получаем имя
+                String humanName = splitHuman[1];
+                // получаем возраст
+                int humanAge = Integer.parseInt(splitHuman[2]);
+                Human human = new Human(humanId, humanName, humanAge);
+                humans.add(human);
+                currentHumanAsString = reader.readLine();
+            }
+        } catch (FileNotFoundException e) {
+            System.err.println("File not found");
+            return null;
+        } catch (IOException e) {
+            System.err.println("Exception in IO");
+            return null;
+        }
+
+        return humans;
     }
 }

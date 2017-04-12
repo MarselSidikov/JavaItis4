@@ -5,6 +5,8 @@ import ru.itis.id.IdGeneratorImpl;
 import ru.itis.models.Human;
 import ru.itis.storages.HumansDataStorage;
 
+import java.util.List;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -16,5 +18,11 @@ public class Main {
 
         dataStorage.save(marsel);
         dataStorage.save(guzel);
+
+        List<Human> fromStorage = dataStorage.findAll();
+
+        for (int i  = 0; i < fromStorage.size(); i++) {
+            System.out.println(fromStorage.get(i));
+        }
     }
 }
