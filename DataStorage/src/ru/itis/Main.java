@@ -26,5 +26,8 @@ public class Main {
         }
 
         dataStorage.delete(4);
+
+        Human newHuman = new Human(6, "Alina", 77);
+        dataStorage.update(newHuman);
     }
 }
