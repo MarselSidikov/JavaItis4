@@ -2,6 +2,7 @@ package ru.itis.storages;
 
 import org.junit.Before;
 import org.junit.Test;
+import ru.itis.factory.DataStorageFactory;
 import ru.itis.id.IdGenerator;
 import ru.itis.id.IdGeneratorImpl;
 import ru.itis.models.Human;
@@ -21,8 +22,7 @@ public class HumansDataStorageFileBasedImplTest {
 
     @Before
     public void setUp() throws Exception {
-        IdGenerator idGenerator = new IdGeneratorImpl("test_data\\id.txt");
-        humansDataStorage = new HumansDataStorageFileBasedImpl("test_data\\humans.txt",idGenerator);
+        humansDataStorage = DataStorageFactory.getHumansDataStorage("test");
     }
 
     @Test

@@ -1,5 +1,6 @@
 package ru.itis;
 
+import ru.itis.factory.DataStorageFactory;
 import ru.itis.id.IdGenerator;
 import ru.itis.id.IdGeneratorImpl;
 import ru.itis.storages.HumansDataStorageFileBasedImpl;
@@ -12,20 +13,8 @@ import java.util.Properties;
 public class Main {
 
     public static void main(String[] args) {
-
-        Properties properties = new Properties();
-        try {
-            properties.load(new FileInputStream("resources\\app.properties"));
-        } catch (IOException e) {
-            System.err.println("IO Exception");
-        }
-
-        String idFileName = properties.getProperty("id.file");
-        String humanFileName = properties.getProperty("human.file");
-
-        IdGenerator idGenerator = new IdGeneratorImpl(idFileName);
-        HumansDataStorageFileBasedImpl dataStorage =
-                new HumansDataStorageFileBasedImpl(humanFileName, idGenerator);
-
+        HumansDataStorageFileBasedImpl humansDataStorage =
+                DataStorageFactory.getHumansDataStorage("production");
+        System.out.println(humansDataStorage.find(5));
     }
 }
