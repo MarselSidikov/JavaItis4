@@ -1,11 +1,11 @@
 package ru.itis.bicycle;
 
-import ru.itis.Summator;
+import ru.itis.Calculator;
 
 public class Main {
 
     public static void main(String[] args) {
-	    Summator summator = new Summator();
-        System.out.println(summator.sum(5, 6));
+	    Calculator calculator = new Calculator();
+        System.out.println(calculator.sum(5, 6));
     }
 }

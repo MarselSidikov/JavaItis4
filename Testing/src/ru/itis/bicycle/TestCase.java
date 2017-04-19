@@ -1,6 +1,6 @@
 package ru.itis.bicycle;
 
-import ru.itis.Summator;
+import ru.itis.Calculator;
 
 /**
  * 19.04.2017
@@ -11,10 +11,10 @@ import ru.itis.Summator;
  */
 public class TestCase {
     public static void main(String[] args) {
-        Summator testingSummator = new Summator();
+        Calculator testingCalculator = new Calculator();
 
         // результат, который мы получили
-        int actual = testingSummator.sum(5, 6);
+        int actual = testingCalculator.sum(5, 6);
         // результат, который мы ожидаем получить
         int expected = 12;
 
