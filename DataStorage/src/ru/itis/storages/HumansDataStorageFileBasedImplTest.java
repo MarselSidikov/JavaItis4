@@ -2,8 +2,11 @@ package ru.itis.storages;
 
 import org.junit.Before;
 import org.junit.Test;
+import ru.itis.id.IdGenerator;
+import ru.itis.id.IdGeneratorImpl;
+import ru.itis.models.Human;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 /**
  * 19.04.2017
@@ -18,12 +21,15 @@ public class HumansDataStorageFileBasedImplTest {
 
     @Before
     public void setUp() throws Exception {
-        humansDataStorage = new
+        IdGenerator idGenerator = new IdGeneratorImpl("test_data\\id.txt");
+        humansDataStorage = new HumansDataStorageFileBasedImpl("test_data\\humans.txt",idGenerator);
     }
 
     @Test
-    public void find() throws Exception {
-
+    public void findTest() throws Exception {
+        Human actual = humansDataStorage.find(1);
+        Human expected = new Human(1, "Guzel", 18);
+        assertEquals(expected, actual);
     }
 
 }

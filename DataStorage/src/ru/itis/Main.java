@@ -2,7 +2,6 @@ package ru.itis;
 
 import ru.itis.id.IdGenerator;
 import ru.itis.id.IdGeneratorImpl;
-import ru.itis.models.Human;
 import ru.itis.storages.HumansDataStorageFileBasedImpl;
 
 import java.io.FileInputStream;

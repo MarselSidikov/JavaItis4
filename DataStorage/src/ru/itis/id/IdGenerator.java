@@ -1,13 +1,12 @@
 package ru.itis.id;
 
 /**
- * Created by User on 12.04.2017.
+ * 19.04.2017
+ * IdGenerator
+ *
+ * @author Sidikov Marsel (First Software Engineering Platform)
+ * @version v1.0
  */
 public interface IdGenerator {
-    /**
-     * Метод генерации идентификатора, при каждом вызове метода
-     * generateId должен возвращатся новый уникальный id-шник, который раньше не генерировался
-     * @return целое число - идентификатор новый
-     */
     int generateId();
 }
