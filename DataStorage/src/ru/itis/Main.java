@@ -5,35 +5,28 @@ import ru.itis.id.IdGeneratorImpl;
 import ru.itis.models.Human;
 import ru.itis.storages.HumansDataStorageFileBasedImpl;
 
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.List;
+import java.util.Properties;
 
 public class Main {
 
     public static void main(String[] args) {
-        Human marsel = new Human("Marsel", 23);
-        Human guzel = new Human("Guzel", 18);
-        IdGenerator idGenerator = new IdGeneratorImpl("id.txt");
+
+        Properties properties = new Properties();
+        try {
+            properties.load(new FileInputStream("resources\\app.properties"));
+        } catch (IOException e) {
+            System.err.println("IO Exception");
+        }
+
+        String idFileName = properties.getProperty("id.file");
+        String humanFileName = properties.getProperty("human.file");
+
+        IdGenerator idGenerator = new IdGeneratorImpl(idFileName);
         HumansDataStorageFileBasedImpl dataStorage =
-                new HumansDataStorageFileBasedImpl("human.txt", idGenerator);
+                new HumansDataStorageFileBasedImpl(humanFileName, idGenerator);
 
-        dataStorage.save(marsel);
-        dataStorage.save(guzel);
-
-        List<Human> fromStorage = dataStorage.findAll();
-
-        for (int i  = 0; i < fromStorage.size(); i++) {
-            System.out.println(fromStorage.get(i));
-        }
-
-        dataStorage.delete(4);
-
-        Human newHuman = new Human(6, "Alina", 77);
-        dataStorage.update(newHuman);
-
-        List<Human> guzels = dataStorage.findAllByName("Guzel");
-
-        for (int i  = 0; i < guzels.size(); i++) {
-            System.out.println(guzels.get(i));
-        }
     }
 }

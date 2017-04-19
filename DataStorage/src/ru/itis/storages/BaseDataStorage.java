@@ -32,8 +32,8 @@ public interface BaseDataStorage<T> {
     void update(T model);
 
     /**
-     * Вытащить всех людей
-     * @return список людей
+     * Вытащить всех данные
+     * @return список данных
      */
-    List<Human> findAll();
+    List<T> findAll();
 }
