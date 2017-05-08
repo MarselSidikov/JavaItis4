@@ -1,0 +1,6 @@
+CREATE TABLE student (
+	id SERIAL PRIMARY KEY,
+	age INTEGER,
+	name VARCHAR(20),
+	height INTEGER
+);
