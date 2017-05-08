@@ -1,0 +1,6 @@
+CREATE TABLE auto (
+  id SERIAL PRIMARY KEY,
+  model VARCHAR(20),
+  number VARCHAR(20),
+  owner_id INTEGER REFERENCES student(id)
+);
