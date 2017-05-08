@@ -1,0 +1,12 @@
+INSERT INTO public.auto (id, model, number, owner_id) VALUES (1, 'Infinity', 'A001AA', 1);
+INSERT INTO public.auto (id, model, number, owner_id) VALUES (2, 'Toyota', 'A002AA', 1);
+INSERT INTO public.auto (id, model, number, owner_id) VALUES (3, 'Audi', 'О423ТМ', 2);
+INSERT INTO public.auto (id, model, number, owner_id) VALUES (4, 'BMW', 'К123КК', 3);
+INSERT INTO public.auto (id, model, number, owner_id) VALUES (5, 'Porsche', 'V001VV', 4);
+INSERT INTO public.auto (id, model, number, owner_id) VALUES (6, 'LADA', 'Р432ТТ', 5);
+INSERT INTO public.auto (id, model, number, owner_id) VALUES (7, 'VOLGA', 'С123СС', 5);
+INSERT INTO public.auto (id, model, number, owner_id) VALUES (8, 'VAZ', 'О001ОО', 5);
+INSERT INTO public.auto (id, model, number, owner_id) VALUES (9, 'Mercedes', 'А111АА', 6);
+INSERT INTO public.auto (id, model, number, owner_id) VALUES (10, 'Ford', 'Г777ГГ', 7);
+INSERT INTO public.auto (id, model, number, owner_id) VALUES (11, 'KIA', 'Р423СС', 8);
+INSERT INTO public.auto (id, model, number, owner_id) VALUES (12, 'OPEL', 'Р324CC', 8);
