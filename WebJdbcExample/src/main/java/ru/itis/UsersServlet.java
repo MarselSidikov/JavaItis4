@@ -52,6 +52,19 @@ public class UsersServlet extends HttpServlet {
         req.setAttribute("users", users);
         // перенаправлем запрос на JSP-станицу
         req.getRequestDispatcher("/jsp/users.jsp").forward(req, resp);
-
     }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        Integer id = Integer.parseInt(req.getParameter("id"));
+        String name = req.getParameter("name");
+        Integer age = Integer.parseInt(req.getParameter("age"));
+        Integer height = Integer.parseInt(req.getParameter("height"));
+        String style = req.getParameter("style");
+
+        User user = new User(id, name, age, height, style);
+
+        users.add(user);
+    }
+
 }

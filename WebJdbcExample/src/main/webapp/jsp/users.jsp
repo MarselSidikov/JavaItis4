@@ -1,6 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
 <html>
 <head>
     <link href="<c:url value="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />" rel="stylesheet">
@@ -19,5 +18,13 @@
         </tr>
     </c:forEach>
 </table>
+<form action="/hello/users" method="post" class="form-group">
+    <input type="text" name="id" value="ID">
+    <input type="text" name="name" value="ИМЯ">
+    <input type="text" name="age" value="Возраст">
+    <input type="text" name="height" value="Рост">
+    <input type="text" name="style" value="стиль">
+    <input type="submit">
+</form>
 </body>
 </html>
