@@ -21,6 +21,7 @@ public class Main {
         User karim = usersDao.find(5);
         System.out.println(karim);
         List<User> users = usersDao.findAll();
+        users = usersDao.findAllByAge(16);
         System.out.println(users);
 
 

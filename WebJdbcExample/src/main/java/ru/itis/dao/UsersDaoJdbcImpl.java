@@ -31,6 +31,10 @@ public class UsersDaoJdbcImpl implements UsersDao {
     private final String SQL_SELECT_ALL =
             "SELECT * FROM student";
 
+    //language=SQL
+    private final String SQL_SELECT_ALL_BY_AGE =
+            "SELECT * FROM student WHERE age = ?";
+
     public User find(int id) {
         try {
             // создаем выражение для запроса из коннекта к БД
@@ -94,6 +98,26 @@ public class UsersDaoJdbcImpl implements UsersDao {
     }
 
     public List<User> findAllByAge(int age) {
-        return null;
+        try {
+            List<User> users = new ArrayList<User>();
+            PreparedStatement statement =
+                    connection.prepareStatement(SQL_SELECT_ALL_BY_AGE);
+
+            statement.setInt(1, age);
+
+            ResultSet set = statement.executeQuery();
+
+            while (set.next()) {
+                int id = set.getInt("id");
+                String name = set.getString("name");
+                int height = set.getInt("height");
+                String style = set.getString("style");
+                User newUser = new User(id, name, age, height, style);
+                users.add(newUser);
+            }
+            return users;
+        } catch (SQLException e) {
+            throw new IllegalArgumentException(e);
+        }
     }
 }
