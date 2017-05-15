@@ -61,4 +61,15 @@ public class User {
     public void setStyle(String style) {
         this.style = style;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                ", height=" + height +
+                ", style='" + style + '\'' +
+                '}';
+    }
 }

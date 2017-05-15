@@ -1,5 +1,7 @@
 package ru.itis;
 
+import ru.itis.dao.UsersDao;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -18,19 +20,11 @@ import java.util.List;
  */
 public class UsersServlet extends HttpServlet {
 
-    private List<User> users;
+    private UsersDao usersDao;
 
     @Override
     public void init() throws ServletException {
         super.init();
-        User marsel = new User(1, "Marsel", 23, 185, "danger");
-        User guzel = new User(2, "Guzel", 18, 178, "success");
-        User sergey = new User(3, "Sergey", 17, 183, "info");
-
-        users = new ArrayList<User>();
-        users.add(marsel);
-        users.add(guzel);
-        users.add(sergey);
     }
 
     @Override
@@ -49,6 +43,7 @@ public class UsersServlet extends HttpServlet {
         writer.write("</table>");
         */
         // кладем как атрибут запроса под названием "users" список юзеров
+        List<User> users = usersDao.findAll();
         req.setAttribute("users", users);
         // перенаправлем запрос на JSP-станицу
         req.getRequestDispatcher("/jsp/users.jsp").forward(req, resp);
@@ -64,7 +59,7 @@ public class UsersServlet extends HttpServlet {
 
         User user = new User(id, name, age, height, style);
 
-        users.add(user);
+        usersDao.save(user);
     }
 
 }
