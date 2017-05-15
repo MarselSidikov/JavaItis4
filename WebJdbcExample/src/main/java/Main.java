@@ -22,7 +22,10 @@ public class Main {
         System.out.println(karim);
         List<User> users = usersDao.findAll();
         users = usersDao.findAllByAge(16);
+        User user = new User("Alehandro", 95, 134, "fail");
+        usersDao.save(user);
         System.out.println(users);
+        System.out.println(user);
 
 
     }

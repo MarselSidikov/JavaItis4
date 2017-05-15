@@ -74,13 +74,12 @@ public class UsersServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        Integer id = Integer.parseInt(req.getParameter("id"));
         String name = req.getParameter("name");
         Integer age = Integer.parseInt(req.getParameter("age"));
         Integer height = Integer.parseInt(req.getParameter("height"));
         String style = req.getParameter("style");
 
-        User user = new User(id, name, age, height, style);
+        User user = new User(name, age, height, style);
 
         usersDao.save(user);
     }

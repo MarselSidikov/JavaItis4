@@ -22,6 +22,13 @@ public class User {
         this.style = style;
     }
 
+    public User(String name, int age, int height, String style) {
+        this.name = name;
+        this.age = age;
+        this.height = height;
+        this.style = style;
+    }
+
     public int getId() {
         return id;
     }

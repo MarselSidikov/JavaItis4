@@ -35,6 +35,10 @@ public class UsersDaoJdbcImpl implements UsersDao {
     private final String SQL_SELECT_ALL_BY_AGE =
             "SELECT * FROM student WHERE age = ?";
 
+    //language=SQL
+    private final String SQL_INSERT_USER =
+            "INSERT INTO student(age, name, height, style) VALUES(?, ?, ?, ?)";
+
     public User find(int id) {
         try {
             // создаем выражение для запроса из коннекта к БД
@@ -94,7 +98,26 @@ public class UsersDaoJdbcImpl implements UsersDao {
     }
 
     public int save(User model) {
-        return 0;
+        try {
+            String generatedColumns[] = { "id" };
+            PreparedStatement statement = connection.prepareStatement(SQL_INSERT_USER, generatedColumns);
+            statement.setInt(1, model.getAge());
+            statement.setString(2, model.getName());
+            statement.setInt(3, model.getHeight());
+            statement.setString(4, model.getStyle());
+            // в insertedRows количество изменненных строк
+            int insertedRows = statement.executeUpdate();
+            // получили множество сгенерированных ключей
+            ResultSet generatedKeys = statement.getGeneratedKeys();
+            // магия
+            generatedKeys.next();
+
+            int generatedId = generatedKeys.getInt(1);
+            model.setId(generatedId);
+            return generatedId;
+        } catch (SQLException e) {
+            throw new IllegalArgumentException(e);
+        }
     }
 
     public List<User> findAllByAge(int age) {
