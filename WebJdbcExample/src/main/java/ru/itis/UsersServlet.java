@@ -1,6 +1,7 @@
 package ru.itis;
 
 import ru.itis.dao.UsersDao;
+import ru.itis.dao.UsersDaoJdbcImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -8,6 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,6 +29,16 @@ public class UsersServlet extends HttpServlet {
     @Override
     public void init() throws ServletException {
         super.init();
+        try {
+            Class.forName("org.postgresql.Driver");
+            Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/itis_shcolota",
+                    "postgres", "qwerty007");
+            usersDao = new UsersDaoJdbcImpl(connection);
+        } catch (SQLException e) {
+            throw new IllegalArgumentException(e);
+        } catch (ClassNotFoundException e) {
+            throw new IllegalArgumentException(e);
+        }
     }
 
     @Override
