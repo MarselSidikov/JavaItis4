@@ -57,8 +57,17 @@ public class UsersServlet extends HttpServlet {
         writer.write("</table>");
         */
         // кладем как атрибут запроса под названием "users" список юзеров
-        List<User> users = usersDao.findAll();
-        req.setAttribute("users", users);
+
+        String age = req.getParameter("age");
+        if (age != null) {
+            int ageAsInt = Integer.parseInt(age);
+            List<User> users = usersDao.findAllByAge(ageAsInt);
+            req.setAttribute("users", users);
+        } else {
+            List<User> users = usersDao.findAll();
+            req.setAttribute("users", users);
+        }
+
         // перенаправлем запрос на JSP-станицу
         req.getRequestDispatcher("/jsp/users.jsp").forward(req, resp);
     }
