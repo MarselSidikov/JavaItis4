@@ -24,7 +24,7 @@ public class MainController {
     private Button buttonHello;
 
     @FXML
-    TextField countTextField;
+        private TextField countTextField;
 
     @FXML
     public void initialize() {

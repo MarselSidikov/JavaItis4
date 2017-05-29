@@ -5,7 +5,7 @@
 
 .list-cell:odd {
     -fx-cell-hover-color: #0093ff;
-    -fx-background-color: aqua;
+    -fx-background-color: green;
 }
 
 .list-cell:filled:hover {
